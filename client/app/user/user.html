@@ -1,0 +1,80 @@
+<div id="map"></div>
+
+<div class="logo">
+  <h1>Trek</h1>
+</div>
+
+<div class="jumbotron possible-route" id="right-panel" ng-if="vm.possibleRoute">
+  <center>
+    <p>Possible Routes</p>
+    <ul ng-repeat="route in vm.possibleRoute" class="possible-route">
+      <li>Distance <br><strong>{{ route.distance.text }}</strong></li>
+      <li>Duration <br><strong>{{ route.duration.text }}</strong></li>
+      <hr>
+    </ul>
+  </center>
+</div>
+
+<div class="prop">
+  <div class="alert alert-danger text-center" role="alert" ng-if="vm.apiError">
+    <b>API Error : </b>
+    <span>{{ vm.apiStatus }}</span>
+  </div>
+
+  <div class="jumbotron places">
+    <center>
+      <form name="searchForm" class="form-inline" novalidate>
+        <div class="input-group" ng-if="vm.from">
+          <input name="place" type="text" class="form-control" placeholder="ORIGIN" ng-model="vm.origin" required autofocus />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" ng-disabled="searchForm.$invalid" ng-click="vm.search()">FROM</button>
+          </span>
+        </div>
+        <div class="input-group" ng-if="vm.to">
+          <input name="place" type="text" class="form-control"  placeholder="DESTINATION" ng-model="vm.destination" required autofocus />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" ng-disabled="searchForm.$invalid" ng-click="vm.search()">TO</button>
+          </span>
+        </div>
+      </form>
+    </center>
+  </div>
+
+    <div class="gap-medium"></div>
+
+  <div class="jumbotron" ng-if="vm.confirm">
+    <form name="resForm" novalidate ng-submit="vm.send()">
+      <div class="form-group">
+        <label for="resName" class="col-xs-2 control-label">Name</label>
+        <input name="resName" type="text" class="form-control" ng-model="vm.place.name" required readonly />
+      </div>
+      <div class="form-group">
+        <label for="resLat" class="col-xs-2 control-label">Latitude</label>
+        <input name="resLat" type="number" class="form-control" ng-model="vm.place.lat" required readonly />
+      </div>
+      <div class="form-group">
+        <label for="resLng" class="col-xs-2 control-label">Longitude</label>
+        <input name="resLng" type="number" class="form-control" ng-model="vm.place.lng" required readonly />
+      </div>
+
+      <div class="gap-medium"></div>
+
+      <button class="btn btn-default btn-sm" ng-disabled="resForm.$invalid">Confirm</button>
+    </form>
+
+    <div class="gap-small"></div>
+  </div>
+
+  <div class="jumbotron" ng-if="vm.all">
+    <center>
+      <ul ng-if="vm.routeInfo" class="route no-pd">
+        <li>Origin: <br><strong>{{ vm.routeInfo.origin }}</strong></li>
+        <li>Destination: <br><strong>{{ vm.routeInfo.destination }}</strong></li>
+        <li>Distance: <br><strong>{{ vm.routeInfo.distance.text }}</strong></li>
+        <li>Duration: <br><strong>{{ vm.routeInfo.duration.text }}</strong></li>
+      </ul>
+      <button class="btn btn-primary btn-sm" ng-click="vm.fastestRoute()">Fastest Route</button>
+    </center>
+  </div>
+</div>
+

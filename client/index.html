@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Trek</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <base href="/">
+
+  <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="components/bootswatch/paper/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+  <div ui-view></div>
+
+<!--   <script>
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8
+      });
+    }
+  </script> -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe-OPwITOeHH21b07CcUMTATy-RMS1g3U&libraries=places">
+  </script>
+  <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="components/angular/angular.js"></script>
+  <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="/app/app.module.js"></script>
+  <script type="text/javascript" src="/app/core/core.module.js"></script>
+  <script type="text/javascript" src="/app/user/user.module.js"></script>
+  <script type="text/javascript" src="/app/core/constants.js"></script>
+  <script type="text/javascript" src="/app/core/core.service.js"></script>
+  <script type="text/javascript" src="/app/core/map.service.js"></script>
+  <script type="text/javascript" src="/app/core/persistence.service.js"></script>
+  <script type="text/javascript" src="/app/user/user.factory.js"></script>
+  <script type="text/javascript" src="/app/user/user.controller.js"></script>
+</body>
+</html>

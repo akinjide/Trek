@@ -1,0 +1,60 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto;
+  background: none;
+}
+
+.gap-huge { margin: 40px 0; }
+.gap-medium { margin: 20px 0; }
+.gap-small { margin: 20px 0; }
+#map { height: 100vh; }
+
+.prop, .logo {
+  position: absolute;
+  padding: 10px;
+  top: 0;
+}
+
+.logo, #right-panel { right: 0; }
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  color: rgba(0, 0, 0, .09);
+  font-weight: bolder
+}
+
+.prop .jumbotron, #right-panel {
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+.prop .jumbotron.places {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.route, .possible-route {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+}
+
+.route > li { padding-bottom: 6px; }
+.possible-route > center > ul > li { display: inline-block; }
+
+#right-panel {
+  position: absolute;
+  top: 20vh;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#right-panel ul { margin: 0; }
+#right-panel hr { margin: 10px 0; }
