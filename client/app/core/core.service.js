@@ -63,10 +63,14 @@
     }
 
     this.getallPossibleRoutes = function() {
-      return this.parse(PersistenceService.get('GGResponse'))
-        .map(function(v, i) {
-          return v.legs[0];
-        });
+      if (PersistenceService.get('GGResponse')) {
+        return this.parse(PersistenceService.get('GGResponse'))
+          .map(function(v, i) {
+            return v.legs[0];
+          });
+        } else {
+          return;
+        }
     }
 
     this.findShortestRoute = function(data, map) {

@@ -48,7 +48,6 @@
             vm.place.name = response.name;
             vm.place.lat = response.geometry.location.lat();
             vm.place.lng = response.geometry.location.lng();
-            vm.origin = '';
           })
           .catch(function(status) {
             vm.apiError = true;
@@ -74,6 +73,7 @@
     function send() {
       if (vm.origin) {
         PersistenceService.set('currentLocation', JSON.stringify({ name: vm.place.name, lat: vm.place.lat, lng: vm.place.lng }));
+        vm.origin = '';
       } else if (vm.destination) {
         PersistenceService.set('destinationLocation', JSON.stringify({ name: vm.place.name, lat: vm.place.lat, lng: vm.place.lng }));
         vm.all = true;
